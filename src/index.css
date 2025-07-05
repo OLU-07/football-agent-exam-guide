@@ -2,95 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;500;600&family=Roboto+Condensed:wght@400;700&display=swap');
+
+/* FIFA Agent Exam Preparation Design System */
 
 @layer base {
   :root {
+    /* FIFA Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 210 44% 12%;
+    
+    /* FIFA Primary Colors */
+    --fifa-blue: 210 60% 23%;        /* #1A365D */
+    --fifa-gold: 45 74% 54%;         /* #D4AF37 */
+    --fifa-light-blue: 210 42% 58%;  /* #4A7AAF */
+    --fifa-navy: 210 73% 14%;        /* #0A1F3C */
+    --fifa-gray: 214 27% 97%;        /* #F5F7FA */
+    
+    /* Semantic Design Tokens */
+    --primary: var(--fifa-blue);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--fifa-light-blue);
+    --secondary-foreground: 0 0% 100%;
+    --accent: var(--fifa-gold);
+    --accent-foreground: var(--fifa-navy);
+    
+    /* Card and UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 44% 12%;
+    --muted: 214 27% 97%;
+    --muted-foreground: 210 44% 50%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 210 44% 12%;
+    
+    /* Inputs and Borders */
+    --border: 210 44% 90%;
+    --input: 210 44% 90%;
+    --ring: var(--fifa-blue);
+    
+    /* Design System */
+    --radius: 0.75rem;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--fifa-blue)), hsl(var(--fifa-light-blue)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--fifa-gold)), hsl(45 84% 64%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--fifa-gray)), hsl(0 0% 100%));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -2px hsl(var(--fifa-blue) / 0.1);
+    --shadow-hero: 0 20px 40px -10px hsl(var(--fifa-blue) / 0.3);
+    --shadow-gold: 0 8px 30px -8px hsl(var(--fifa-gold) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 210 73% 14%;
+    --foreground: 0 0% 95%;
+    --primary: var(--fifa-gold);
+    --primary-foreground: var(--fifa-navy);
+    --card: 210 73% 14%;
+    --card-foreground: 0 0% 95%;
+    --muted: 210 60% 20%;
+    --muted-foreground: 0 0% 70%;
+    --border: 210 60% 20%;
+    --input: 210 60% 20%;
   }
 }
 
@@ -101,5 +81,52 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply bg-gradient-to-r from-[hsl(var(--fifa-gold))] to-[hsl(45_84%_64%)] text-[hsl(var(--fifa-navy))] font-bold px-8 py-4 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-hero)] transform hover:scale-105 transition-all duration-300;
+  }
+  
+  /* Secondary Button */
+  .btn-secondary {
+    @apply bg-[hsl(var(--fifa-blue))] text-white hover:bg-[hsl(var(--fifa-navy))] px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  /* Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-card)] hover:-translate-y-2;
+  }
+  
+  /* FIFA Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[hsl(var(--fifa-blue))] to-[hsl(var(--fifa-light-blue))] bg-clip-text text-transparent;
+  }
+  
+  /* Section Backgrounds */
+  .section-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply text-[hsl(var(--foreground))] hover:text-[hsl(var(--fifa-blue))] font-medium transition-colors duration-200 relative;
+  }
+  
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-[hsl(var(--fifa-gold))] transition-all duration-300;
+    content: '';
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
   }
 }
