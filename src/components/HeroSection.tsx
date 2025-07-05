@@ -29,8 +29,13 @@ const HeroSection = () => {
             <Button size="lg" className="btn-hero text-lg px-12 py-6">
               Start Learning Today
             </Button>
-            <Button size="lg" variant="outline" className="btn-secondary text-lg px-12 py-6">
-              View Course Preview
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="btn-secondary text-lg px-12 py-6"
+              onClick={() => window.location.href = '/practice-exam'}
+            >
+              Take Practice Exam
             </Button>
           </div>
           

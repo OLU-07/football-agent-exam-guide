@@ -16,9 +16,9 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="nav-link">Home</a>
-            <a href="#courses" className="nav-link">Courses</a>
-            <a href="#practice" className="nav-link">Practice Tests</a>
+            <a href="/" className="nav-link">Home</a>
+            <a href="/#courses" className="nav-link">Courses</a>
+            <a href="/practice-exam" className="nav-link">Practice Tests</a>
             <a href="#resources" className="nav-link">Resources</a>
             <a href="#pricing" className="nav-link">Pricing</a>
           </nav>
